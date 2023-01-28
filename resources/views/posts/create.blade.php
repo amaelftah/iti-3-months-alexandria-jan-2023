@@ -25,7 +25,8 @@
     </div>
 </nav>
 <div class="container">
-    <form>
+    <form method="POST" action="/posts">
+        @csrf
         <div class="mb-3">
             <label class="form-label">Title</label>
             <input type="text" class="form-control" >
@@ -46,7 +47,6 @@
         </div>
         <button type="submit" class="btn btn-success">Submit</button>
     </form>
-
 
 </div>
 
