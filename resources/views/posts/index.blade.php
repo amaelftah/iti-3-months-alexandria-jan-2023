@@ -26,7 +26,7 @@
 </nav>
 <div class="container">
     <div class="text-center">
-        <button type="button" class="mt-4 btn btn-success">Create Post</button>
+        <a href="/posts/create" class="mt-4 btn btn-success">Create Post</a>
     </div>
     <table class="table mt-4">
         <thead>
@@ -48,7 +48,7 @@
                 <td>{{$post['posted_by']}}</td>
                 <td>{{$post['created_at']}}</td>
                 <td>
-                    <a href="#" class="btn btn-info">View</a>
+                    <a href="/posts/{{$post['id']}}" class="btn btn-info">View</a>
                     <a href="#" class="btn btn-primary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </td>

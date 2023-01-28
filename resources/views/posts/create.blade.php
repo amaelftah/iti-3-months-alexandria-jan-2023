@@ -19,7 +19,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" href="#">All Posts</a>
+                <a class="nav-link active" href="/posts">All Posts</a>
             </div>
         </div>
     </div>

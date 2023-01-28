@@ -37,12 +37,12 @@ class PostController extends Controller
 
     public function store()
     {
-        return 'hello in store';
+        return 'insert in database';
     }
 
     public function show($postId)
     {
-//        dd($postId);
+        dd($postId);
         return view('posts.show');
     }
 }
