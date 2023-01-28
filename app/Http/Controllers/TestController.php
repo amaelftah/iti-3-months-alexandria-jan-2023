@@ -8,10 +8,14 @@ class TestController extends Controller
 {
     public function test()
     {
-        $name = 'ahmed';
+        $localBooks = [
+            'Book 1',
+            'Book 2',
+        ];
 
         return view('test',[
-            'xyz' => $name,
+            'name' => 'ahmed',
+            'books' => $localBooks
         ]);
     }
 }
