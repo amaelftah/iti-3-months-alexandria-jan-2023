@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class TestController extends Controller
+class PostController extends Controller
 {
-    public function test()
+    public function index()
     {
         $allPosts = [
             [
@@ -25,7 +25,7 @@ class TestController extends Controller
             ],
         ];
 //        dd($allPosts);
-        return view('test',[
+        return view('posts.index',[
             'posts' => $allPosts,
         ]);
     }
