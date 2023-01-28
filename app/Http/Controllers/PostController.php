@@ -39,4 +39,10 @@ class PostController extends Controller
     {
         return 'hello in store';
     }
+
+    public function show($postId)
+    {
+//        dd($postId);
+        return view('posts.show');
+    }
 }
