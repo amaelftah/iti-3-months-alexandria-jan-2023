@@ -25,39 +25,28 @@
     </div>
 </nav>
 <div class="container">
-    <div class="text-center">
-        <button type="button" class="mt-4 btn btn-success">Create Post</button>
-    </div>
-    <table class="table mt-4">
-        <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Posted By</th>
-            <th scope="col">Created At</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+    <form>
+        <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" >
+        </div>
+        <div class="mb-3">
+            <label  class="form-label">Description</label>
+            <textarea
+                class="form-control"
+            ></textarea>
+        </div>
+        <div class="mb-3">
+            <label class="form-check-label">Post Creator</label>
 
-        @foreach($posts as $post)
-{{--            @dd($post)--}}
-            <tr>
-                <td>{{$post['id']}}</td>
-                <td>{{$post['title']}}</td>
-                <td>{{$post['posted_by']}}</td>
-                <td>{{$post['created_at']}}</td>
-                <td>
-                    <a href="#" class="btn btn-info">View</a>
-                    <a href="#" class="btn btn-primary">Edit</a>
-                    <a href="#" class="btn btn-danger">Delete</a>
-                </td>
-            </tr>
-        @endforeach
+            <select class="form-control">
+                <option>Ahmed</option>
+                <option>Mohamed</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
 
-
-        </tbody>
-    </table>
 
 </div>
 
@@ -68,5 +57,3 @@
 </body>
 
 </html>
-
-
