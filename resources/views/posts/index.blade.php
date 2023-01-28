@@ -19,14 +19,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" href="#">All Posts</a>
+{{--                <a class="nav-link active" href="{{route('posts.index')}}">All Posts</a>--}}
             </div>
         </div>
     </div>
 </nav>
 <div class="container">
     <div class="text-center">
-        <a href="/posts/create" class="mt-4 btn btn-success">Create Post</a>
+{{--        <a href="{{route('posts.create')}}" class="mt-4 btn btn-success">Create Post</a>--}}
     </div>
     <table class="table mt-4">
         <thead>
@@ -48,7 +48,8 @@
                 <td>{{$post['posted_by']}}</td>
                 <td>{{$post['created_at']}}</td>
                 <td>
-                    <a href="/posts/{{$post['id']}}" class="btn btn-info">View</a>
+{{--                    href="/posts/{{$post['id']}}"--}}
+                    <a href="{{route('posts.show', $post['id'])}}" class="btn btn-info">View</a>
                     <a href="#" class="btn btn-primary">Edit</a>
                     <a href="#" class="btn btn-danger">Delete</a>
                 </td>
