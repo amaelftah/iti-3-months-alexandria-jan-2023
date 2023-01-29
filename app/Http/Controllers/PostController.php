@@ -2,29 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $allPosts = [
-            [
-                'id' => 1,
-                'title' => 'laravel',
-                'description' => 'hello this is laravel post',
-                'posted_by' => 'Ahmed',
-                'created_at' => '2022-01-28 10:05:00',
-            ],
-            [
-                'id' => 2,
-                'title' => 'php',
-                'description' => 'hello this is php post',
-                'posted_by' => 'Mohamed',
-                'created_at' => '2022-01-30 10:05:00',
-            ],
-        ];
-//        dd($allPosts);
+        //select * from posts;
+        $allPosts = Post::all();
+
         return view('posts.index',[
             'posts' => $allPosts,
         ]);
@@ -32,17 +20,51 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        $users = User::get();
+
+        return view('posts.create',[
+            'users' => $users,
+        ]);
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        return 'insert in database';
+        //get me the form submission data
+//        $data = request()->all();
+//
+//        $title = $data['title'];
+//        $description = $data['description'];
+//
+
+//        $title = request()->title;
+//        $description = request()->description;
+
+        $data = $request->all();
+
+        $title = $data['title'];
+        $description = $data['description'];
+        $userId = $data['post_creator'];
+
+        //store the form data inside the database
+        Post::create([
+            'title' => $title,
+            'description' => $description,
+            'user_id' => $userId,
+        ]);
+
+        return to_route('posts.index');
     }
 
     public function show($postId)
     {
-        dd($postId);
+//        $allJavascriptPosts = Post::where('title', 'Javascript')->get();
+//        dd($allJavascriptPosts);
+
+//        $result = Post::where('id', $postId)->get(); //return Collection object
+//        dd($result);
+//        $post = Post::where('id', $postId)->first(); //return App\Models\Post object
+        $post = Post::find($postId);
+        dd($post);
         return view('posts.show');
     }
 }
