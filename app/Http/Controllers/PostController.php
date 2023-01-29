@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
 
@@ -19,7 +20,11 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        $users = User::get();
+
+        return view('posts.create',[
+            'users' => $users,
+        ]);
     }
 
     public function store(Request $request)
@@ -38,11 +43,13 @@ class PostController extends Controller
 
         $title = $data['title'];
         $description = $data['description'];
+        $userId = $data['post_creator'];
 
         //store the form data inside the database
         Post::create([
             'title' => $title,
             'description' => $description,
+            'user_id' => $userId,
         ]);
 
         return to_route('posts.index');

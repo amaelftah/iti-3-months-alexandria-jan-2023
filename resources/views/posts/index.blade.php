@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="text-center">
-        <a href="{{route('posts.create')}}" class="mt-4 btn btn-success">Create Post</a>
+{{--        <a href="{{route('posts.create')}}" class="mt-4 btn btn-success">Create Post</a>--}}
     </div>
     <table class="table mt-4">
         <thead>
@@ -28,7 +28,16 @@
 
                 <td>{{$post->id}}</td>
                 <td>{{$post->title}}</td>
-                <td>{{$post->posted_by}}</td>
+
+{{--                @if($post->user)--}}
+{{--                    <td>{{$post->user->name}}</td>--}}
+{{--                @else--}}
+{{--                    <td>User Not Found</td>--}}
+{{--                    @endif--}}
+{{--                <td>{{$post->user?->name}}</td>--}}
+{{--                <td>{{$post->user ? $post->user->name : 'Not Found'}}</td>--}}
+                <td>{{$post->user->name ?? 'Not Found'}}</td>
+{{--                <td>{{$post->test}}</td>--}}
                 <td>{{$post->created_at}}</td>
                 <td>
 {{--                    href="/posts/{{$post['id']}}"--}}
