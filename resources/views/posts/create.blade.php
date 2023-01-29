@@ -7,18 +7,19 @@
         @csrf
         <div class="mb-3">
             <label class="form-label">Title</label>
-            <input type="text" class="form-control" >
+            <input name="title" type="text" class="form-control" >
         </div>
         <div class="mb-3">
-            <label  class="form-label">Description</label>
+            <label class="form-label">Description</label>
             <textarea
+                name="description"
                 class="form-control"
             ></textarea>
         </div>
         <div class="mb-3">
             <label class="form-check-label">Post Creator</label>
 
-            <select class="form-control">
+            <select name="post_creator" class="form-control">
                 <option>Ahmed</option>
                 <option>Mohamed</option>
             </select>

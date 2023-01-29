@@ -25,3 +25,19 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 Route::post('/posts', [PostController::class, 'store']);
 
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
+// change database structure (create table , edit table , add column)
+// retrieve, insert, update, delete on database
+
+
+//1- create database
+//2- create tables and relations
+//3- insert/retrieve data
+
+
+    // sync db structure (problem)
+    // one db server and all of developers connect on it   (solution)
+    // modify column x in db and inside the code modify on x ---> y (problem)
+    //database migrations
+
+
