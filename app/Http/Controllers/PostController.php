@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -27,7 +28,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         //get me the form submission data
 //        $data = request()->all();
@@ -38,6 +39,14 @@ class PostController extends Controller
 
 //        $title = request()->title;
 //        $description = request()->description;
+
+//        $request->validate([
+//            'title' => ['required', 'min:3'],
+//            'description' => ['required', 'min:5'],
+//        ],[
+//            'title.required' => 'this message is changed',
+//            'title.min' => 'minimum override message',
+//        ]);
 
         $data = $request->all();
 

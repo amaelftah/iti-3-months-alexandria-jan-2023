@@ -18,13 +18,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index')->middleware(['auth']);
 
-Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
+Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create')->middleware('auth');
 
-Route::post('/posts', [PostController::class, 'store']);
+Route::group(['middleware' => ['auth']],function(){
+    Route::post('/posts', [PostController::class, 'store']);
 
-Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+    Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+});
 
 // change database structure (create table , edit table , add column)
 // retrieve, insert, update, delete on database
@@ -41,3 +43,7 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
     //database migrations
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
