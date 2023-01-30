@@ -41,3 +41,7 @@ Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show')
     //database migrations
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
