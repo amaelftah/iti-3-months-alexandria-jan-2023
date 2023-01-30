@@ -39,6 +39,14 @@ class PostController extends Controller
 //        $title = request()->title;
 //        $description = request()->description;
 
+        $request->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required', 'min:5'],
+        ],[
+            'title.required' => 'this message is changed',
+            'title.min' => 'minimum override message',
+        ]);
+
         $data = $request->all();
 
         $title = $data['title'];
