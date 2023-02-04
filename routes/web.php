@@ -47,3 +47,29 @@ Route::group(['middleware' => ['auth']],function(){
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+use Laravel\Socialite\Facades\Socialite;
+
+Route::get('/auth/redirect', function () {
+    return Socialite::driver('github')->redirect();
+});
+
+Route::get('/auth/callback', function () {
+    $user = Socialite::driver('github')->user();
+dd($user);
+
+//    $user = User::updateOrCreate([
+//        'github_id' => $githubUser->id,
+//    ], [
+//        'name' => $githubUser->name,
+//        'email' => $githubUser->email,
+//        'github_token' => $githubUser->token,
+//        'github_refresh_token' => $githubUser->refreshToken,
+//    ]);
+//
+//    Auth::login($user);
+    // $user->token
+
+    //make get request to github api and get me the repos /repos
+});
